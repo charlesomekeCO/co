@@ -1,51 +1,51 @@
 import project1 from '../assets/project1.webp';
 import project2 from '../assets/project2.webp';
 import project3 from '../assets/project3.webp';
-// import project4 from '../assets/project4.webp';
-// import project5 from '../assets/project5.webp';
-// import project6 from '../assets/project6.webp';
+import project4 from '../assets/project4.webp';
+import project5 from '../assets/project5.webp';
+import project6 from '../assets/project6.webp';
 
 const projects = [
   {
     image: project1,
-    title: 'CBT Application',
-    description: 'A CBT web application built with React and MongoDB',
+    title: 'Smart POS System',
+    description: 'POS and inventory management platform for retail shops and supermarkets.',
     demo: 'http://www.bloommonieclient90.store',
     code: '/',
   },
   {
     image: project2,
-    title: 'Digital Solution Agency',
-    description: 'Offering high quality digital solutions for businesses.',
+    title: 'BrandHive Agency',
+    description: 'Digital agency website delivering web, branding, and growth solutions.',
     demo: 'https://brandhive.ng',
     code: '/',
   },
   {
     image: project3,
-    title: 'Lawyer\'s Chambers Wallet',
-    description: 'A platform where lawyer\'s can recieve payments from clients.',
+    title: 'LawPay Wallet',
+    description: 'Secure wallet for lawyers to receive client payments online.',
     demo: '/',
     code: '/',
   },
   {
-    image: project1,
-    title: 'Analytics Dashboard',
-    description: 'Interactive dashboard built with Chart.js and Node.js',
-    demo: '/',
+    image: project4,
+    title: 'Insight Dashboard',
+    description: 'Interactive analytics dashboard built with Node.js and Chart.js.',
+    demo: 'https://myteacher.institute',
     code: '/',
   },
   {
-    image: project1,
-    title: 'Real Estate Platform',
-    description: 'Property listing app using Next.js and Firebase',
-    demo: '/',
+    image: project5,
+    title: 'Domus Real Estate',
+    description: 'Property listing platform built with React.js and Firebase backend.',
+    demo: 'https://domus.ng',
     code: '/',
   },
   {
-    image: project1,
-    title: 'AI Chatbot',
-    description: 'Chatbot powered by NLP and deployed with Flask',
-    demo: '/',
+    image: project6,
+    title: 'Independent Monitor',
+    description: 'News platform with chatbot integration powered by NLP and Flask.',
+    demo: 'https://independentmonitor.com.ng',
     code: '/',
   },
 ];
