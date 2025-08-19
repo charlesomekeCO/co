@@ -7,88 +7,67 @@ import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
-  const handleClick = () => setNav(!nav);
+
+  const links = ['home', 'about', 'skills', 'work', 'contact'];
+
+  const socials = [
+    { href: 'https://www.linkedin.com/in/charlesomeke', label: 'LinkedIn', bg: 'bg-blue-600', icon: <FaLinkedin size={30} /> },
+    { href: 'https://github.com/charlesomekeCO', label: 'Github', bg: 'bg-[#333]', icon: <FaGithub size={30} /> },
+    { href: 'mailto:charlesomeke45@gmail.com', label: 'Email', bg: 'bg-[#6fc2b0]', icon: <HiOutlineMail size={30} /> },
+    { href: resume, label: 'Resume', bg: 'bg-[#565f69]', icon: <BsFillPersonLinesFill size={30} />, download: true },
+  ];
 
   return (
-    <header className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300'>
-      <div>
-        <h1 className=' font-thin text-2xl italic font-serif'>CO</h1>
-      </div>
-      {/* menu */}
-      <ul className='hidden md:flex gap-x-8'>
-        <li><Link to='home' smooth={true} duration={500}>Home</Link></li>
-        <li><Link to='about' smooth={true} duration={500}>About</Link></li>
-        <li><Link to='skills' smooth={true} duration={500}>Skills</Link></li>
-        <li><Link to='work' smooth={true} duration={500}>Work</Link></li>
-        <li><Link to='contact' smooth={true} duration={500}>Contact</Link></li>
+    <header className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300">
+      {/* Logo */}
+      <h1 className="font-thin text-2xl italic font-serif">CO</h1>
+
+      {/* Desktop menu */}
+      <ul className="hidden md:flex gap-x-8">
+        {links.map(link => (
+          <li key={link}>
+            <Link to={link} smooth duration={500}>{link.charAt(0).toUpperCase() + link.slice(1)}</Link>
+          </li>
+        ))}
       </ul>
+
       {/* Hamburger */}
-      <div onClick={handleClick} className='md:hidden z-10'>
-        {!nav ? <FaBars /> : <FaTimes />}
+      <div onClick={() => setNav(!nav)} className="md:hidden z-10 cursor-pointer">
+        {nav ? <FaTimes /> : <FaBars />}
       </div>
+
       {/* Mobile menu */}
-      <ul
-        className={
-          !nav ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'
-        }
-      >
-        <li className='py-6 text-4xl'>
-          <Link onClick={handleClick} to='home' smooth={true} duration={500}>Home</Link>
-        </li>
-        <li className='py-6 text-4xl'>
-          {' '}
-          <Link onClick={handleClick} to='about' smooth={true} duration={500}>About</Link>
-        </li>
-        <li className='py-6 text-4xl'>
-          {' '}
-          <Link onClick={handleClick} to='skills' smooth={true} duration={500}>Skills</Link>
-        </li>
-        <li className='py-6 text-4xl'>
-          {' '}
-          <Link onClick={handleClick} to='work' smooth={true} duration={500}>Work</Link>
-        </li>
-        <li className='py-6 text-4xl'>
-          {' '}
-          <Link onClick={handleClick} to='contact' smooth={true} duration={500}>Contact</Link>
-        </li>
-      </ul>
+      {nav && (
+        <ul className="absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center">
+          {links.map(link => (
+            <li key={link} className="py-6 text-4xl">
+              <Link onClick={() => setNav(false)} to={link} smooth duration={500}>
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
       {/* Social icons */}
-      <div className='hidden lg:flex fixed flex-col top-[35%] left-0'>
+      <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600'>
-            <a
-              href='https://www.linkedin.com/in/charles-omeke-9337302b6/'
-              className='flex justify-between items-center w-full text-gray-300'
+          {socials.map(({ bg, href, icon, label, download }) => (
+            <li
+              key={label}
+              className={`w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 ${bg}`}
             >
-              Linkedin <FaLinkedin size={30} />
-            </a>
-          </li>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#333333]'>
-            <a
-              href='https://github.com/charlesomekeCO'
-              className='flex justify-between items-center w-full text-gray-300'
-            >
-              Github <FaGithub size={30} />
-            </a>
-          </li>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]'>
-            <a
-              href='mailto:charlesomeke45@gmail.com'
-              className='flex justify-between items-center w-full text-gray-300'
-            >
-              Email <HiOutlineMail size={30} />
-            </a>
-          </li>
-          <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#565f69]'>
-            <a
-              download href={resume}
-              className='flex justify-between items-center w-full text-gray-300'
-            >
-              Resume <BsFillPersonLinesFill size={30} />
-            </a>
-          </li>
+              <a
+                href={href}
+                {...(download && { download: true })}
+                className="flex justify-between items-center w-full text-gray-300"
+              >
+                {label} {icon}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </header>
   );
-};
+}
