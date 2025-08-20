@@ -15,8 +15,8 @@ export default function Skills() {
     ];
 
     return (
-        <section name='skills' className='w-full h-screen bg-[#0a192f] text-gray-300'>
-            <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
+        <section name='skills' className='w-full h-full bg-[#0a192f] text-gray-300'>
+            <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full min-h-dvh'>
                 <div className='w-full flex justify-center items-center flex-col mb-7'>
                     <p className='text-4xl font-bold inline border-b-4 border-cyan-500 text-center'>
                         Skills
