@@ -8,7 +8,7 @@ import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
 export default function Navbar() {
   const [nav, setNav] = useState(false);
 
-  const links = ['home', 'about', 'skills', 'work', 'contact'];
+  const links = ['home', 'about', 'skills', 'projects', 'portfolios', 'contact'];
 
   const socials = [
     { href: 'https://www.linkedin.com/in/charlesomeke', label: 'LinkedIn', bg: 'bg-blue-600', icon: <FaLinkedin size={30} /> },

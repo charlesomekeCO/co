@@ -6,12 +6,12 @@ export default function Skills() {
         'REACT',
         'GIT',
         'PHP',
-        'NODE JS',
-        'SQL & NOSQL',
+        'PRODUCT DESIGN',
         'WORDPRESS',
         'UI/UX DESIGN',
         'CONTENT CREATION',
         'DIGITAL MARKETING',
+        'AI & AUTOMATION',
     ];
 
     return (
